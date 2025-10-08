@@ -1,0 +1,32 @@
+#!/usr/bin/sh
+
+sudo apt update
+
+# install neovim
+apt install -y vim neovim
+
+# install fcitx
+sudo apt install fcitx fcitx-unikey
+sudo apt install fcitx-frontend-gtk3 fcitx-frontend-qt5
+
+# install git
+apt install git
+
+# install spring boot
+sudo apt install unzip zip curl
+curl -s "https://get.sdkman.io" | bash
+source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+sdk install java 21.0.8-tem
+sdk install gradle
+sdk install maven
+sdk install springboot
+
+# Download and install nvm:
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+
+# in lieu of restarting the shell
+\. "$HOME/.nvm/nvm.sh"
+
+# Download and install Node.js:
+nvm install 24
